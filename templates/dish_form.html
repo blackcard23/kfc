@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %}Создание блюда{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Создание блюда</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'dish_list' %}">Вернуться к списку блюд</a>
+</div>
+{% endblock %}

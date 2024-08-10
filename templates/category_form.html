@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block title %}Создание категории{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Создание категории</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+    <a href="{% url 'category_list' %}">Вернуться к списку категорий</a>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    background-color: snow;
+    color: red;
+}
+button{
+    background: none;
+    border: none;
+}
+.cat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+div{
+    color: black;
+    padding: 20px;
+    border: 8px solid ;
+    border-color: red;
+    border-radius: 40px;
+    text-align: center;
+}
+
+a{
+    text-align: center;
+    color: red;
+    text-decoration:none
+}
+
+p{
+    color: black;
+    padding: 20px;
+    border: 7px;
+    border-color: black;
+    text-align: center;
+}
+.cards{
+    border: 0px solid ;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+}
+
+.pages a{
+    font-size: 25px;
+    font-weight: 600;
+}
+span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.forma{
+    text-align: center;
+}
+.logg{
+    text-align:center;
+    background-color: red;
+    color: snow;
+}
+.logg a{
+    color: snow;
+}
+
+.im {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img{
+    width: 100px;
+    height: auto;
+
+}}
+
+.crud-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: red;
+    color: snow;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #a41e34;
+}

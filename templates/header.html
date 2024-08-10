@@ -1,0 +1,15 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/head.css' %}">
+
+<header>
+    <div class="head">
+        <a href="{% url 'main' %}"><img src="https://kfc.com.uz/admin/files/4279.svg" alt=""/></a>
+        <h1>Добро пожаловать</h1>
+        <a href="{% url 'menu' %}"><h1>📖</h1></a>
+        <a href="{% url 'cart' %}"><h1>🛒</h1></a>
+        <a href="{% url 'order_history' %}"><h1>👤</h1></a>
+    </div>
+    <br>
+
+</header>

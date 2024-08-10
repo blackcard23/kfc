@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %}Список блюд{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Список блюд</h1>
+<a href="{% url 'dish_create' %}">Создать новое блюдо</a>
+<ul>
+    {% for dish in object_list %}
+    <li>
+        <a href="{% url 'dish_detail' dish.pk %}">{{ dish.name }}</a>
+        <a href="{% url 'dish_update' dish.pk %}">Изменить</a>
+        <a href="{% url 'dish_delete' dish.pk %}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+{% endblock %}

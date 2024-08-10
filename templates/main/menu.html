@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/cat.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="biggest_block">
+    <div class="big_block">
+        {% for i in Categories %}
+            <div class="block">
+                <a href="{% url 'menu' %}?category={{i.id}}">{{i.name}}</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="food_category">
+        {% for i in foods %}
+            <div class="food_block">
+                <h3>{{i.name}}</h3>
+                <img src="{{ i.picture.url }}" alt="{{i.name}}">
+                <p>Price: {{i.price}}</p>
+
+                {% if i.id not in meals_in_basket %}
+                    <form action="{% url 'cart_add' %}?dish={{i.id}}&category={{current_category.id}}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Добавить в корзину</button>
+                    </form>
+                {% else %}
+                    <div class="app_del">
+                        <form action="{% url 'cart_minus' %}?dish={{i.id}}&category={{current_category.id}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">-</button>
+                        </form>
+                        {% if i.count %}
+                            {{i.count}}
+                        {% endif %}
+                        <form action="{% url 'cart_add' %}?dish={{i.id}}&category={{current_category.id}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">+</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

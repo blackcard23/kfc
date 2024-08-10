@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div class="container">
+        <h1>Список категорий</h1>
+        <a href="{% url 'category_create' %}">Создать новую категорию</a>
+        <ul>
+            {% for category in categories %}
+            <li>
+                <a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a>
+                <a href="{% url 'category_update' category.pk %}">Изменить</a>
+                <a href="{% url 'category_delete' category.pk %}">Удалить</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

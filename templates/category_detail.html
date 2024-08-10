@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+{% block title %}Детали категории{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>{{ category.name }}</h1>
+<p>Slug: {{ category.slug }}</p>
+<a href="{% url 'category_update' category.pk %}">Изменить</a>
+<a href="{% url 'category_delete' category.pk %}">Удалить</a>
+<a href="{% url 'category_list' %}">Вернуться к списку категорий</a>
+</div>
+{% endblock %}

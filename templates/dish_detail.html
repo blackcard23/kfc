@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block title %}Детали блюда{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>{{ object.name }}</h1>
+<p>{{ object.description }}</p>
+<p>Цена: {{ object.price }}</p>
+<p>Категория: {{ object.category }}</p>
+<img src="{{ object.picture.url }}" alt="{{ object.name }}">
+<a href="{% url 'dish_update' object.pk %}">Изменить</a>
+<a href="{% url 'dish_delete' object.pk %}">Удалить</a>
+<a href="{% url 'dish_list' %}">Вернуться к списку блюд</a>
+</div>
+{% endblock %}
